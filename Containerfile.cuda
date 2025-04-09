@@ -26,16 +26,6 @@ RUN pip install \
     pandas \
     torch
 
-# Set the max number of jobs when building Triton
-ARG MAX_JOBS=2
-ENV MAX_JOBS=${MAX_JOBS}
-    
-# Build Triton 3.3.x
-RUN git clone https://github.com/triton-lang/triton.git /usr/src/triton && \
-    cd /usr/src/triton && \
-    pip install -r python/requirements.txt && \
-    pip install -e python
-
 WORKDIR /workdir
 
 EXPOSE 8888

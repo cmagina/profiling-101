@@ -5,7 +5,6 @@ CUDA_NAME ?= cuda
 CUDA_RELEASE ?= 12-8
 WORKDIR ?= $(PWD)/workdir
 CONTAINER_NAME ?= profiling-101
-MAX_JOBS ?= $(shell nproc)
 
 .PHONY: all
 all: build run
@@ -15,7 +14,6 @@ all: build run
 build: Containerfile.cuda
 	podman build \
 	--build-arg "CUDA_RELEASE=$(CUDA_RELEASE)" \
-	--build-arg "MAX_JOBS=$(MAX_JOBS)" \
 	-t $(IMAGE_REPO)/$(CUDA_NAME):$(CUDA_RELEASE) \
 	-f $< .
 
