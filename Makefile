@@ -7,11 +7,11 @@ WORKDIR ?= $(PWD)/workdir
 CONTAINER_NAME ?= profiling-101
 
 .PHONY: all
-all: build run
+all: image run
 
 ##@ Container build.
-.PHONY: build 
-build: Containerfile.cuda
+.PHONY: image
+image: Containerfile.cuda
 	podman build \
 	--build-arg "CUDA_RELEASE=$(CUDA_RELEASE)" \
 	-t $(IMAGE_REPO)/$(CUDA_NAME):$(CUDA_RELEASE) \
@@ -32,6 +32,8 @@ run:
     -e "WAYLAND_DISPLAY=${WAYLAND_DISPLAY}" \
     -e XDG_RUNTIME_DIR=/tmp \
     -e PULSE_SERVER=${XDG_RUNTIME_DIR}/pulse/native \
+    -e QT_QPA_PLATFORM=wayland-egl \
+    -e WAYLAND_DISPLAY=wayland-0 \
     -v "${XDG_RUNTIME_DIR}/${WAYLAND_DISPLAY}:/tmp/${WAYLAND_DISPLAY}:ro" \
     -v "${XDG_RUNTIME_DIR}/pulse:/tmp/pulse:ro" \
     --ipc host \

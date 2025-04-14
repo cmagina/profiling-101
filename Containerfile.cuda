@@ -24,6 +24,7 @@ RUN pip install \
     numpy \
     nvtx \
     pandas \
+    pytest \
     torch
 
 WORKDIR /workdir
