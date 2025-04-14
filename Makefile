@@ -1,4 +1,4 @@
-default: all 
+default: image 
 
 IMAGE_REPO ?= profiling-101
 CUDA_NAME ?= cuda
@@ -56,4 +56,5 @@ ncu-ui:
 
 .PHONY: clean
 clean:
+	podman stop $(CONTAINER_NAME)
 	podman rm $(CONTAINER_NAME)
