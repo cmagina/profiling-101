@@ -1,0 +1,7 @@
+# NSight report files
+*.ncu-rep
+*.nsys-rep
+
+# Jupyer Notebook Server
+.Trash-*
+.ipynb_checkpoints
