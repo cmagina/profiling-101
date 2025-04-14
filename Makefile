@@ -24,7 +24,7 @@ nvidia-cdi:
 
 .PHONY: run
 run:
-	podman run -it \
+	podman run -it --rm \
 	--device nvidia.com/gpu=all \
 	--security-opt label=disable \
 	--cap-add=SYS_ADMIN \
@@ -53,8 +53,3 @@ nsys-ui:
 .PHONY: ncu-ui
 ncu-ui:
 	podman exec -it $(CONTAINER_NAME) /usr/local/cuda-12.8/bin/ncu-ui
-
-.PHONY: clean
-clean:
-	podman stop $(CONTAINER_NAME)
-	podman rm $(CONTAINER_NAME)
