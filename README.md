@@ -1,2 +1,2 @@
 # profiling-101
-AI profiling introduction demo materials
+Triton profiling introduction demo materials

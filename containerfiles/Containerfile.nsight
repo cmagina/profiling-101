@@ -1,0 +1,51 @@
+ARG NAME=nsight-profiling
+ARG VERSION=12.8.0
+ARG IMAGE=quay.io/centos/centos:9
+
+FROM ${IMAGE}
+
+LABEL com.github.containers.toolbox="true" \
+    name="$NAME-toolbox" \
+    version="$VERSION" \
+    usage="This image is meant to be used with the toolbox(1) command" \
+    summary="CentOS Stream 9 image for Nsight Profiling 101"
+
+ARG PYTHON_VERSION=3.12
+ENV PYTHON_VERSION=${PYTHON_VERSION}
+
+ARG CUDA_PACKAGE_VERSION=12-8
+
+RUN dnf -y config-manager --add-repo https://developer.download.nvidia.com/compute/cuda/repos/rhel9/x86_64/cuda-rhel9.repo && \
+    dnf -y update && \
+    dnf -y install \
+    cuda-nsight-${CUDA_PACKAGE_VERSION} \
+    cuda-nsight-systems-${CUDA_PACKAGE_VERSION} \
+    cuda-nsight-compute-${CUDA_PACKAGE_VERSION} \
+    libxkbfile \
+    python${PYTHON_VERSION}-devel \
+    python${PYTHON_VERSION} \
+    python${PYTHON_VERSION}-pip \
+    qt5-qtwayland \
+    sudo \
+    vim \
+    xcb-util-cursor && \
+    dnf clean all
+
+RUN export COMPUTE_VERSION=$(ls /opt/nvidia/nsight-compute); \
+    alternatives --install /usr/local/bin/ncu ncu "/opt/nvidia/nsight-compute/${COMPUTE_VERSION}/ncu" 100 && \
+    alternatives --install /usr/local/bin/ncu-ui ncu-ui "/opt/nvidia/nsight-compute/${COMPUTE_VERSION}/ncu-ui" 100
+
+RUN python${PYTHON_VERSION} -m pip install \
+    jupyter \
+    jupyterlab-nvidia-nsight \
+    matplotlib \
+    nvcc4jupyter \
+    nvtx \
+    pandas \
+    triton && \
+    python${PYTHON_VERSION} -m pip cache purge
+
+COPY --chmod=0755 containerfiles/start_jupyter.sh /usr/local/bin/start_jupyter
+
+COPY --chmod=0755 containerfiles/entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
