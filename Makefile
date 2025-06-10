@@ -72,6 +72,11 @@ nsight-systems:
 nsight-compute:
 	@$(call nsight-run, "ncu-ui")
 
+# Run a Jupyter Notebook Server (no-CUDA)
+.PHONY: nsight-jupyter
+nsight-jupyter:
+	@$(call nsight-run, "start_jupyter")
+
 # Open a shell in the NVIDIA Nsight container (no-CUDA)
 .PHONY: nsight-console
 nsight-console:
