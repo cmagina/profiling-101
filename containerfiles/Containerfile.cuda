@@ -1,4 +1,4 @@
-RG NAME=cuda-profiling
+ARG NAME=cuda-profiling
 ARG VERSION=12.8.0
 ARG IMAGE=quay.io/centos/centos:9
 
