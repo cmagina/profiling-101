@@ -67,12 +67,10 @@ endef
 nsight-systems:
 	@$(call nsight-run, "nsys-ui")
 
-
 # Run the NVIDIA Nsight Compute UI (no-CUDA)
 .PHONY: nsight-compute
 nsight-compute:
 	@$(call nsight-run, "ncu-ui")
-
 
 # Open a shell in the NVIDIA Nsight container (no-CUDA)
 .PHONY: nsight-console
@@ -91,7 +89,6 @@ endef
 cuda-systems:
 	@$(call cuda-run, "nsys-ui")
 
-
 # Run the NVIDIA Nsight Systems UI (w/CUDA)
 .PHONY: cuda-compute
 cuda-compute:
@@ -102,7 +99,6 @@ cuda-compute:
 .PHONY: cuda-jupyter
 cuda-jupyter:
 	@$(call cuda-run, "start_jupyter")
-
 
 # Open a shell in the NVIDIA Nsight container (CUDA support)
 .PHONY: cuda-console

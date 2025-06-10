@@ -7,8 +7,8 @@ set -o pipefail # don't hide errors within pipes
 
 
 
-if [ -n "$@" ]; then
-    exec $@
+if [ -n "$*" ]; then
+    exec "$@"
 else
     printf "Welcome to the Triton Profiling container\n"
     printf "NVIDIA Nsight Systems\n"
