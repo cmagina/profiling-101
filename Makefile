@@ -80,7 +80,7 @@ nsight-jupyter:
 # Open a shell in the NVIDIA Nsight container (no-CUDA)
 .PHONY: nsight-console
 nsight-console:
-	@$(call nsight-run, "/bin/bash")
+	@$(call nsight-run, "")
 
 
 # NVIDIA Nsight Tools w/CUDA Support
@@ -108,4 +108,4 @@ cuda-jupyter:
 # Open a shell in the NVIDIA Nsight container (CUDA support)
 .PHONY: cuda-console
 cuda-console:
-	@$(call cuda-run, "/bin/bash")
+	@$(call cuda-run, "")

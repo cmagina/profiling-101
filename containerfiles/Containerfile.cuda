@@ -54,6 +54,8 @@ RUN python${PYTHON_VERSION} -m pip install \
     triton && \
     python${PYTHON_VERSION} -m pip cache purge
 
+WORKDIR /workspace
+
 COPY --chmod=0755 containerfiles/start_jupyter.sh /usr/local/bin/start_jupyter
 
 COPY --chmod=0755 containerfiles/entrypoint.sh /entrypoint.sh
