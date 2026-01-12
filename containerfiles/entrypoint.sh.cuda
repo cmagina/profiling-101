@@ -1,0 +1,28 @@
+#! /bin/bash
+
+set -o errexit  # abort on nonzero exitstatus
+set -o nounset  # abort on unbound variable
+set -o pipefail # don't hide errors within pipes
+# set -o xtrace   # display expanded commands and arguments
+
+if [ -n "$*" ]; then
+    exec "$@"
+else
+	cat >&2 <<EOF
+Welcome to the CUDA Triton Profiling container
+NVIDIA Nsight Systems
+    nsys                 Systems CLI
+    nsys-ui              Systems UI
+NVIDIA Nsight Compute
+    ncu                  Compute CLI
+    ncu-ui               Compute UI
+Triton Profiler
+    proton               Proton lightweight Triton profiler
+    proton-viewer        Proton profiler results viewer
+Jupyter Notebook
+    start_jupyter        Start a Jupyter Notebook server
+                         Set NOTEBOOK_PORT to specify the http port used
+                         Default is ${NOTEBOOK_PORT}
+EOF
+    exec /bin/bash
+fi

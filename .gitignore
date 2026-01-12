@@ -3,6 +3,13 @@
 *.nsys-rep
 *.sqlite
 
+# ROCm Profiler Compute files
+workspace/ROCm/workloads/
+.rocprofv*/
+
+# Proton report files
+*.hatchet
+
 # Jupyer Notebook Server
 .Trash-*
 .ipynb_checkpoints

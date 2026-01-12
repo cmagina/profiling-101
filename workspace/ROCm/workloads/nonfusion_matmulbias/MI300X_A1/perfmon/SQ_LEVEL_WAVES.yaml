@@ -1,0 +1,10 @@
+rocprofiler-sdk:
+  counters-schema-version: 1
+  counters:
+  - name: SQ_LEVEL_WAVES_ACCUM
+    description: SQ_LEVEL_WAVES accumulation
+    properties: []
+    definitions:
+    - architectures:
+      - gfx942
+      expression: accumulate(SQ_LEVEL_WAVES, HIGH_RES)

@@ -1,0 +1,96 @@
+ARG EPEL_VERSION=9
+
+FROM quay.io/centos/centos:${EPEL_VERSION}
+
+ARG CUDA_VERSION=12-8
+ARG EPEL_VERSION
+ARG PYTHON_VERSION=3.12
+
+# Install EPEL repo and software
+ARG EPEL_REPO=https://dl.fedoraproject.org/pub/epel/epel-release-latest-${EPEL_VERSION}.noarch.rpm
+RUN dnf -y install 'dnf-command(config-manager)' && \
+	dnf -y config-manager --set-enabled crb && \
+	dnf -y install ${EPEL_REPO} && \
+    /usr/bin/crb enable && \
+    dnf -y update && \
+    dnf -y install libglvnd-opengl libxkbfile python${PYTHON_VERSION}-devel \
+    python${PYTHON_VERSION}-pip qt5-qtwayland xcb-util-cursor && \
+    dnf clean all && rm -rf /var/cache/dnf
+
+# Install Jupyter Notebook dependencies
+RUN dnf -y install pandoc texlive-adjustbox \
+    texlive-collection-fontsrecommended texlive-eurosym texlive-fontspec \
+    texlive-grffile texlive-jknapltx texlive-metafont texlive-parskip \
+    texlive-soul texlive-tcolorbox texlive-titling texlive-upquote \
+    texlive-ulem texlive-unicode-math texlive-xetex && \
+    dnf clean all && rm -rf /var/cache/dnf
+
+# Create the /workspace directory and set permissions
+ARG WORKSPACE=/workspace
+WORKDIR $WORKSPACE
+RUN python${PYTHON_VERSION} -m pip install uv && \
+    uv venv --python ${PYTHON_VERSION} --seed $WORKSPACE && \
+    echo "unset BASH_ENV PROMPT_COMMAND ENV" >> ${WORKSPACE}/bin/activate
+
+# Install python dependencies
+RUN uv pip install jupyter jupyterlab-nvidia-nsight llnl-hatchet nvtx
+
+# Install CUDA SDK, Profiling and Debug Tools
+# FIX: cuda-nsight-systems pulls in too new of a version of the nsight-systems package
+#      nsys errors out when run stating what version it needs
+RUN dnf -y config-manager --add-repo \
+	https://developer.download.nvidia.com/compute/cuda/repos/rhel${EPEL_VERSION}/x86_64/cuda-rhel${EPEL_VERSION}.repo && \
+	dnf -y install cuda-minimal-build-$CUDA_VERSION \
+	cuda-libraries-devel-$CUDA_VERSION cuda-nvml-devel-$CUDA_VERSION \
+	cublasmp cuda-cupti-$CUDA_VERSION \
+	cuda-gdb-$CUDA_VERSION cuda-nsight-$CUDA_VERSION \
+	cuda-nsight-compute-$CUDA_VERSION cuda-nsight-systems-$CUDA_VERSION \
+	nsight-systems-2024.6.2 && \
+    dnf clean all && rm -rf /var/cache/dnf
+
+# Create a symlink to the installed version of CUDA
+RUN COMPUTE_VERSION=$(ls /opt/nvidia/nsight-compute); \
+	alternatives --install /usr/local/bin/ncu ncu \
+	"/opt/nvidia/nsight-compute/${COMPUTE_VERSION}/ncu" 100; \
+	alternatives --install /usr/local/bin/ncu-ui ncu-ui \
+	"/opt/nvidia/nsight-compute/${COMPUTE_VERSION}/ncu-ui" 100
+
+# Install torch (release or nightly if available)
+ARG PIP_TORCH_INDEX_URL=https://download.pytorch.org/whl
+RUN TORCH_CUDA_VERSION="$(echo "$CUDA_VERSION" | sed -e 's/\([0-9]*\)[.-]\([0-9]\)/\1\2/')"; \
+    if curl -o /dev/null -s -f -r 0-0 "${PIP_TORCH_INDEX_URL}/cu${TORCH_CUDA_VERSION}"; then \
+        echo "Installing torch cuda release"; \
+        uv pip install --index-url="${PIP_TORCH_INDEX_URL}/cu${TORCH_CUDA_VERSION}" torch; \
+    elif curl -o /dev/null -s -f -r 0-0 "${PIP_TORCH_INDEX_URL}/nightly/cu${TORCH_CUDA_VERSION}"; then \
+        echo "Installing torch cuda nightly"; \
+        uv pip install --index-url="${PIP_TORCH_INDEX_URL}/nightly/cu${TORCH_CUDA_VERSION}" torch; \
+    else \
+        echo "ERROR: No torch backend available for CUDA ${TORCH_CUDA_VERSION}"; \
+        exit 1; \
+    fi
+    
+ARG NOTEBOOK_PORT=8888
+EXPOSE ${NOTEBOOK_PORT}
+
+ENV BASH_ENV=${WORKSPACE}/bin/activate \
+    ENV=${WORKSPACE}/bin/activate \
+    LANG=en_US.UTF-8 \
+    LC_ALL=C.UTF-8 \
+    PATH=${WORKSPACE}/bin:/usr/local/cuda/bin:$PATH \
+    PIP_PREFIX=$WORKSPACE \
+    PROMPT_COMMAND=". ${WORKSPACE}/bin/activate" \
+    PYTHON_VERSION=$PYTHON_VERSION \
+    PYTHONUNBUFFERED=1 \
+    PYTHONPATH=${WORKSPACE}/lib/python${PYTHON_VERSION}/site-packages \
+    NOTEBOOK_PORT=${NOTEBOOK_PORT} \
+    TRITON_HOME=$WORKSPACE \
+    UV_HTTP_TIMEOUT=60 \
+    WORKSPACE=$WORKSPACE \
+    CUDA_HOME=/usr/local/cuda \
+    XDG_CACHE_HOME=$WORKSPACE
+
+WORKDIR ${WORKSPACE}/user
+
+COPY --chmod=0755 containerfiles/start_jupyter.sh /usr/local/bin/start_jupyter
+COPY --chmod=0755 containerfiles/entrypoint.sh.cuda /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]

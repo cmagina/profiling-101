@@ -1,8 +1,21 @@
-#! /bin/bash
+#! /bin/bash -e
 
-set -o errexit  # abort on nonzero exitstatus
-set -o nounset  # abort on unbound variable
-set -o pipefail # don't hide errors within pipes
-# set -o xtrace   # display expanded commands and arguments
-
-jupyter lab --ip=0.0.0.0 --port="$NOTEBOOK_PORT" --no-browser --allow-root --notebook-dir=/workspace
+# Copyright (C) 2024-2025 Red Hat, Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+# SPDX-License-Identifier: Apache-2.0
+set -euo pipefail
+	
+uv run jupyter lab --ip=0.0.0.0 --port="${NOTEBOOK_PORT:-8888}" --no-browser \
+	--allow-root --notebook-dir="${NOTEBOOK_DIR:-${WORKSPACE}}"

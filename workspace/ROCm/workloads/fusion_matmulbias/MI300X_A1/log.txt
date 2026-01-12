@@ -1,0 +1,269 @@
+Rocprofiler-Compute version: 3.2.3
+Profiler choice: rocprofiler-sdk
+Path: /workspace/user/workloads/fusion_matmulbias/MI300X_A1
+Target: MI300X_A1
+Command: python fusion_matmulbias.py
+Kernel Selection: None
+Dispatch Selection: None
+Hardware Blocks: []
+Report Sections: []
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Collecting Performance Counters
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+[Run 1/12][Approximate profiling time left: pending first measurement...]
+[profiling] Current input file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/perfmon/SQ_IFETCH_LEVEL.txt
+   |-> [rocprofiler-sdk] [0;33mW20260112 19:10:42.982423 139694953385536 simple_timer.cpp:55] [rocprofv3] tool initialization ::     0.178938 sec
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:10:42.982535 139694953385536 simple_timer.cpp:55] [rocprofv3] 'python fusion_matmulbias.py' ::     0.000000 sec
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:10:44.252752 139694953385536 tool.cpp:2203] HSA version 8.18.3 initialized (instance=0)
+   |-> [rocprofiler-sdk] [mRunning the fusion matmulbias kernel ...
+   |-> [rocprofiler-sdk] fusion_triton_output: tensor([[  2.7480,  43.6250,  30.9531,  ...,  26.2500,   8.8203,   6.4609],
+   |-> [rocprofiler-sdk] [  7.1562, -21.3906,  17.7969,  ..., -16.8125,  29.6562, -48.3125],
+   |-> [rocprofiler-sdk] [ 13.8125,  -6.4609,   0.5146,  ...,  48.0000,  25.1562, -27.5156],
+   |-> [rocprofiler-sdk] ...,
+   |-> [rocprofiler-sdk] [-54.4375,  -1.4375,  -0.4214,  ...,   5.4297,  17.2812, -39.0625],
+   |-> [rocprofiler-sdk] [  9.6094, -52.2500,  43.0000,  ..., -45.8438, -49.3125,  32.6875],
+   |-> [rocprofiler-sdk] [-12.8516,   9.5391,  53.3750,  ...,  -9.3438,   7.6797,  54.1250]],
+   |-> [rocprofiler-sdk] device='cuda:0', dtype=torch.float16)
+   |-> [rocprofiler-sdk] [0;33mW20260112 19:10:45.533803 139694953385536 simple_timer.cpp:55] [rocprofv3] 'python fusion_matmulbias.py' ::     2.551267 sec
+   |-> [rocprofiler-sdk] [m[0;31mE20260112 19:10:45.546734 139694953385536 output_stream.cpp:111] Opened result file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/out/pmc_1/f57b369e0635/634_kernel_trace.csv
+   |-> [rocprofiler-sdk] [m[0;31mE20260112 19:10:45.560455 139694953385536 output_stream.cpp:111] Opened result file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/out/pmc_1/f57b369e0635/634_counter_collection.csv
+   |-> [rocprofiler-sdk] [m[0;31mE20260112 19:10:45.879358 139694953385536 output_stream.cpp:111] Opened result file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/out/pmc_1/f57b369e0635/634_agent_info.csv
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:10:45.882235 139694953385536 simple_timer.cpp:55] [rocprofv3] output generation ::     0.343273 sec
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:10:45.883314 139694953385536 simple_timer.cpp:55] [rocprofv3] tool finalization ::     0.344416 sec
+   |-> [rocprofiler-sdk] [m
+[Run 2/12][Approximate profiling time left: 53 seconds]...
+[profiling] Current input file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/perfmon/SQ_INST_LEVEL_LDS.txt
+   |-> [rocprofiler-sdk] [0;33mW20260112 19:10:48.413509 139865877130816 simple_timer.cpp:55] [rocprofv3] tool initialization ::     0.179497 sec
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:10:48.413617 139865877130816 simple_timer.cpp:55] [rocprofv3] 'python fusion_matmulbias.py' ::     0.000000 sec
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:10:49.684479 139865877130816 tool.cpp:2203] HSA version 8.18.3 initialized (instance=0)
+   |-> [rocprofiler-sdk] [mRunning the fusion matmulbias kernel ...
+   |-> [rocprofiler-sdk] fusion_triton_output: tensor([[  2.7480,  43.6250,  30.9531,  ...,  26.2500,   8.8203,   6.4609],
+   |-> [rocprofiler-sdk] [  7.1562, -21.3906,  17.7969,  ..., -16.8125,  29.6562, -48.3125],
+   |-> [rocprofiler-sdk] [ 13.8125,  -6.4609,   0.5146,  ...,  48.0000,  25.1562, -27.5156],
+   |-> [rocprofiler-sdk] ...,
+   |-> [rocprofiler-sdk] [-54.4375,  -1.4375,  -0.4214,  ...,   5.4297,  17.2812, -39.0625],
+   |-> [rocprofiler-sdk] [  9.6094, -52.2500,  43.0000,  ..., -45.8438, -49.3125,  32.6875],
+   |-> [rocprofiler-sdk] [-12.8516,   9.5391,  53.3750,  ...,  -9.3438,   7.6797,  54.1250]],
+   |-> [rocprofiler-sdk] device='cuda:0', dtype=torch.float16)
+   |-> [rocprofiler-sdk] [0;33mW20260112 19:10:50.965728 139865877130816 simple_timer.cpp:55] [rocprofv3] 'python fusion_matmulbias.py' ::     2.552111 sec
+   |-> [rocprofiler-sdk] [m[0;31mE20260112 19:10:50.978685 139865877130816 output_stream.cpp:111] Opened result file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/out/pmc_1/f57b369e0635/654_kernel_trace.csv
+   |-> [rocprofiler-sdk] [m[0;31mE20260112 19:10:50.992469 139865877130816 output_stream.cpp:111] Opened result file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/out/pmc_1/f57b369e0635/654_counter_collection.csv
+   |-> [rocprofiler-sdk] [m[0;31mE20260112 19:10:51.305900 139865877130816 output_stream.cpp:111] Opened result file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/out/pmc_1/f57b369e0635/654_agent_info.csv
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:10:51.308772 139865877130816 simple_timer.cpp:55] [rocprofv3] output generation ::     0.337847 sec
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:10:51.309881 139865877130816 simple_timer.cpp:55] [rocprofv3] tool finalization ::     0.339024 sec
+   |-> [rocprofiler-sdk] [m
+[Run 3/12][Approximate profiling time left: 48 seconds]...
+[profiling] Current input file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/perfmon/SQ_INST_LEVEL_SMEM.txt
+   |-> [rocprofiler-sdk] [0;33mW20260112 19:10:53.441526 140005757541952 simple_timer.cpp:55] [rocprofv3] tool initialization ::     0.133778 sec
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:10:53.441634 140005757541952 simple_timer.cpp:55] [rocprofv3] 'python fusion_matmulbias.py' ::     0.000000 sec
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:10:54.711762 140005757541952 tool.cpp:2203] HSA version 8.18.3 initialized (instance=0)
+   |-> [rocprofiler-sdk] [mRunning the fusion matmulbias kernel ...
+   |-> [rocprofiler-sdk] fusion_triton_output: tensor([[  2.7480,  43.6250,  30.9531,  ...,  26.2500,   8.8203,   6.4609],
+   |-> [rocprofiler-sdk] [  7.1562, -21.3906,  17.7969,  ..., -16.8125,  29.6562, -48.3125],
+   |-> [rocprofiler-sdk] [ 13.8125,  -6.4609,   0.5146,  ...,  48.0000,  25.1562, -27.5156],
+   |-> [rocprofiler-sdk] ...,
+   |-> [rocprofiler-sdk] [-54.4375,  -1.4375,  -0.4214,  ...,   5.4297,  17.2812, -39.0625],
+   |-> [rocprofiler-sdk] [  9.6094, -52.2500,  43.0000,  ..., -45.8438, -49.3125,  32.6875],
+   |-> [rocprofiler-sdk] [-12.8516,   9.5391,  53.3750,  ...,  -9.3438,   7.6797,  54.1250]],
+   |-> [rocprofiler-sdk] device='cuda:0', dtype=torch.float16)
+   |-> [rocprofiler-sdk] [0;33mW20260112 19:10:55.975325 140005757541952 simple_timer.cpp:55] [rocprofv3] 'python fusion_matmulbias.py' ::     2.533692 sec
+   |-> [rocprofiler-sdk] [m[0;31mE20260112 19:10:55.988279 140005757541952 output_stream.cpp:111] Opened result file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/out/pmc_1/f57b369e0635/675_kernel_trace.csv
+   |-> [rocprofiler-sdk] [m[0;31mE20260112 19:10:56.002198 140005757541952 output_stream.cpp:111] Opened result file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/out/pmc_1/f57b369e0635/675_counter_collection.csv
+   |-> [rocprofiler-sdk] [m[0;31mE20260112 19:10:56.023621 140005757541952 output_stream.cpp:111] Opened result file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/out/pmc_1/f57b369e0635/675_agent_info.csv
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:10:56.026561 140005757541952 simple_timer.cpp:55] [rocprofv3] output generation ::     0.046062 sec
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:10:56.027530 140005757541952 simple_timer.cpp:55] [rocprofv3] tool finalization ::     0.047099 sec
+   |-> [rocprofiler-sdk] [m
+[Run 4/12][Approximate profiling time left: 39 seconds]...
+[profiling] Current input file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/perfmon/SQ_INST_LEVEL_VMEM.txt
+   |-> [rocprofiler-sdk] [0;33mW20260112 19:10:57.508652 140037717196352 simple_timer.cpp:55] [rocprofv3] tool initialization ::     0.153469 sec
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:10:57.508764 140037717196352 simple_timer.cpp:55] [rocprofv3] 'python fusion_matmulbias.py' ::     0.000000 sec
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:10:58.784006 140037717196352 tool.cpp:2203] HSA version 8.18.3 initialized (instance=0)
+   |-> [rocprofiler-sdk] [mRunning the fusion matmulbias kernel ...
+   |-> [rocprofiler-sdk] fusion_triton_output: tensor([[  2.7480,  43.6250,  30.9531,  ...,  26.2500,   8.8203,   6.4609],
+   |-> [rocprofiler-sdk] [  7.1562, -21.3906,  17.7969,  ..., -16.8125,  29.6562, -48.3125],
+   |-> [rocprofiler-sdk] [ 13.8125,  -6.4609,   0.5146,  ...,  48.0000,  25.1562, -27.5156],
+   |-> [rocprofiler-sdk] ...,
+   |-> [rocprofiler-sdk] [-54.4375,  -1.4375,  -0.4214,  ...,   5.4297,  17.2812, -39.0625],
+   |-> [rocprofiler-sdk] [  9.6094, -52.2500,  43.0000,  ..., -45.8438, -49.3125,  32.6875],
+   |-> [rocprofiler-sdk] [-12.8516,   9.5391,  53.3750,  ...,  -9.3438,   7.6797,  54.1250]],
+   |-> [rocprofiler-sdk] device='cuda:0', dtype=torch.float16)
+   |-> [rocprofiler-sdk] [0;33mW20260112 19:11:00.057595 140037717196352 simple_timer.cpp:55] [rocprofv3] 'python fusion_matmulbias.py' ::     2.548831 sec
+   |-> [rocprofiler-sdk] [m[0;31mE20260112 19:11:00.070523 140037717196352 output_stream.cpp:111] Opened result file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/out/pmc_1/f57b369e0635/695_kernel_trace.csv
+   |-> [rocprofiler-sdk] [m[0;31mE20260112 19:11:00.084310 140037717196352 output_stream.cpp:111] Opened result file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/out/pmc_1/f57b369e0635/695_counter_collection.csv
+   |-> [rocprofiler-sdk] [m[0;31mE20260112 19:11:00.260079 140037717196352 output_stream.cpp:111] Opened result file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/out/pmc_1/f57b369e0635/695_agent_info.csv
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:11:00.262908 140037717196352 simple_timer.cpp:55] [rocprofv3] output generation ::     0.200110 sec
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:11:00.263943 140037717196352 simple_timer.cpp:55] [rocprofv3] tool finalization ::     0.201217 sec
+   |-> [rocprofiler-sdk] [m
+[Run 5/12][Approximate profiling time left: 33 seconds]...
+[profiling] Current input file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/perfmon/SQ_LEVEL_WAVES.txt
+   |-> [rocprofiler-sdk] [0;33mW20260112 19:11:02.368980 140223726001728 simple_timer.cpp:55] [rocprofv3] tool initialization ::     0.178514 sec
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:11:02.369089 140223726001728 simple_timer.cpp:55] [rocprofv3] 'python fusion_matmulbias.py' ::     0.000000 sec
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:11:03.641553 140223726001728 tool.cpp:2203] HSA version 8.18.3 initialized (instance=0)
+   |-> [rocprofiler-sdk] [mRunning the fusion matmulbias kernel ...
+   |-> [rocprofiler-sdk] fusion_triton_output: tensor([[  2.7480,  43.6250,  30.9531,  ...,  26.2500,   8.8203,   6.4609],
+   |-> [rocprofiler-sdk] [  7.1562, -21.3906,  17.7969,  ..., -16.8125,  29.6562, -48.3125],
+   |-> [rocprofiler-sdk] [ 13.8125,  -6.4609,   0.5146,  ...,  48.0000,  25.1562, -27.5156],
+   |-> [rocprofiler-sdk] ...,
+   |-> [rocprofiler-sdk] [-54.4375,  -1.4375,  -0.4214,  ...,   5.4297,  17.2812, -39.0625],
+   |-> [rocprofiler-sdk] [  9.6094, -52.2500,  43.0000,  ..., -45.8438, -49.3125,  32.6875],
+   |-> [rocprofiler-sdk] [-12.8516,   9.5391,  53.3750,  ...,  -9.3438,   7.6797,  54.1250]],
+   |-> [rocprofiler-sdk] device='cuda:0', dtype=torch.float16)
+   |-> [rocprofiler-sdk] [0;33mW20260112 19:11:04.923924 140223726001728 simple_timer.cpp:55] [rocprofv3] 'python fusion_matmulbias.py' ::     2.554835 sec
+   |-> [rocprofiler-sdk] [m[0;31mE20260112 19:11:04.936830 140223726001728 output_stream.cpp:111] Opened result file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/out/pmc_1/f57b369e0635/716_kernel_trace.csv
+   |-> [rocprofiler-sdk] [m[0;31mE20260112 19:11:04.950593 140223726001728 output_stream.cpp:111] Opened result file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/out/pmc_1/f57b369e0635/716_counter_collection.csv
+   |-> [rocprofiler-sdk] [m[0;31mE20260112 19:11:05.262430 140223726001728 output_stream.cpp:111] Opened result file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/out/pmc_1/f57b369e0635/716_agent_info.csv
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:11:05.265231 140223726001728 simple_timer.cpp:55] [rocprofv3] output generation ::     0.336110 sec
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:11:05.266339 140223726001728 simple_timer.cpp:55] [rocprofv3] tool finalization ::     0.337285 sec
+   |-> [rocprofiler-sdk] [m
+[Run 6/12][Approximate profiling time left: 29 seconds]...
+[profiling] Current input file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/perfmon/pmc_perf_0.txt
+   |-> [rocprofiler-sdk] [0;33mW20260112 19:11:07.349460 139807269813824 simple_timer.cpp:55] [rocprofv3] tool initialization ::     0.127938 sec
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:11:07.349569 139807269813824 simple_timer.cpp:55] [rocprofv3] 'python fusion_matmulbias.py' ::     0.000000 sec
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:11:08.618438 139807269813824 tool.cpp:2203] HSA version 8.18.3 initialized (instance=0)
+   |-> [rocprofiler-sdk] [mRunning the fusion matmulbias kernel ...
+   |-> [rocprofiler-sdk] fusion_triton_output: tensor([[  2.7480,  43.6250,  30.9531,  ...,  26.2500,   8.8203,   6.4609],
+   |-> [rocprofiler-sdk] [  7.1562, -21.3906,  17.7969,  ..., -16.8125,  29.6562, -48.3125],
+   |-> [rocprofiler-sdk] [ 13.8125,  -6.4609,   0.5146,  ...,  48.0000,  25.1562, -27.5156],
+   |-> [rocprofiler-sdk] ...,
+   |-> [rocprofiler-sdk] [-54.4375,  -1.4375,  -0.4214,  ...,   5.4297,  17.2812, -39.0625],
+   |-> [rocprofiler-sdk] [  9.6094, -52.2500,  43.0000,  ..., -45.8438, -49.3125,  32.6875],
+   |-> [rocprofiler-sdk] [-12.8516,   9.5391,  53.3750,  ...,  -9.3438,   7.6797,  54.1250]],
+   |-> [rocprofiler-sdk] device='cuda:0', dtype=torch.float16)
+   |-> [rocprofiler-sdk] [0;33mW20260112 19:11:09.878896 139807269813824 simple_timer.cpp:55] [rocprofv3] 'python fusion_matmulbias.py' ::     2.529328 sec
+   |-> [rocprofiler-sdk] [m[0;31mE20260112 19:11:09.891823 139807269813824 output_stream.cpp:111] Opened result file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/out/pmc_1/f57b369e0635/736_kernel_trace.csv
+   |-> [rocprofiler-sdk] [m[0;31mE20260112 19:11:09.905707 139807269813824 output_stream.cpp:111] Opened result file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/out/pmc_1/f57b369e0635/736_counter_collection.csv
+   |-> [rocprofiler-sdk] [m[0;31mE20260112 19:11:09.925880 139807269813824 output_stream.cpp:111] Opened result file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/out/pmc_1/f57b369e0635/736_agent_info.csv
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:11:09.928819 139807269813824 simple_timer.cpp:55] [rocprofv3] output generation ::     0.044715 sec
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:11:09.929752 139807269813824 simple_timer.cpp:55] [rocprofv3] tool finalization ::     0.045712 sec
+   |-> [rocprofiler-sdk] [m
+[Run 7/12][Approximate profiling time left: 23 seconds]...
+[profiling] Current input file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/perfmon/pmc_perf_1.txt
+   |-> [rocprofiler-sdk] [0;33mW20260112 19:11:11.238917 140375007215168 simple_timer.cpp:55] [rocprofv3] tool initialization ::     0.128909 sec
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:11:11.239027 140375007215168 simple_timer.cpp:55] [rocprofv3] 'python fusion_matmulbias.py' ::     0.000000 sec
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:11:12.504989 140375007215168 tool.cpp:2203] HSA version 8.18.3 initialized (instance=0)
+   |-> [rocprofiler-sdk] [mRunning the fusion matmulbias kernel ...
+   |-> [rocprofiler-sdk] fusion_triton_output: tensor([[  2.7480,  43.6250,  30.9531,  ...,  26.2500,   8.8203,   6.4609],
+   |-> [rocprofiler-sdk] [  7.1562, -21.3906,  17.7969,  ..., -16.8125,  29.6562, -48.3125],
+   |-> [rocprofiler-sdk] [ 13.8125,  -6.4609,   0.5146,  ...,  48.0000,  25.1562, -27.5156],
+   |-> [rocprofiler-sdk] ...,
+   |-> [rocprofiler-sdk] [-54.4375,  -1.4375,  -0.4214,  ...,   5.4297,  17.2812, -39.0625],
+   |-> [rocprofiler-sdk] [  9.6094, -52.2500,  43.0000,  ..., -45.8438, -49.3125,  32.6875],
+   |-> [rocprofiler-sdk] [-12.8516,   9.5391,  53.3750,  ...,  -9.3438,   7.6797,  54.1250]],
+   |-> [rocprofiler-sdk] device='cuda:0', dtype=torch.float16)
+   |-> [rocprofiler-sdk] [0;33mW20260112 19:11:13.770026 140375007215168 simple_timer.cpp:55] [rocprofv3] 'python fusion_matmulbias.py' ::     2.530999 sec
+   |-> [rocprofiler-sdk] [m[0;31mE20260112 19:11:13.783227 140375007215168 output_stream.cpp:111] Opened result file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/out/pmc_1/f57b369e0635/757_kernel_trace.csv
+   |-> [rocprofiler-sdk] [m[0;31mE20260112 19:11:13.797015 140375007215168 output_stream.cpp:111] Opened result file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/out/pmc_1/f57b369e0635/757_counter_collection.csv
+   |-> [rocprofiler-sdk] [m[0;31mE20260112 19:11:13.816801 140375007215168 output_stream.cpp:111] Opened result file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/out/pmc_1/f57b369e0635/757_agent_info.csv
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:11:13.819701 140375007215168 simple_timer.cpp:55] [rocprofv3] output generation ::     0.044255 sec
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:11:13.820658 140375007215168 simple_timer.cpp:55] [rocprofv3] tool finalization ::     0.045284 sec
+   |-> [rocprofiler-sdk] [m
+[Run 8/12][Approximate profiling time left: 18 seconds]...
+[profiling] Current input file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/perfmon/pmc_perf_2.txt
+   |-> [rocprofiler-sdk] [0;33mW20260112 19:11:15.126360 140373093432896 simple_timer.cpp:55] [rocprofv3] tool initialization ::     0.128422 sec
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:11:15.126465 140373093432896 simple_timer.cpp:55] [rocprofv3] 'python fusion_matmulbias.py' ::     0.000000 sec
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:11:16.392985 140373093432896 tool.cpp:2203] HSA version 8.18.3 initialized (instance=0)
+   |-> [rocprofiler-sdk] [mRunning the fusion matmulbias kernel ...
+   |-> [rocprofiler-sdk] fusion_triton_output: tensor([[  2.7480,  43.6250,  30.9531,  ...,  26.2500,   8.8203,   6.4609],
+   |-> [rocprofiler-sdk] [  7.1562, -21.3906,  17.7969,  ..., -16.8125,  29.6562, -48.3125],
+   |-> [rocprofiler-sdk] [ 13.8125,  -6.4609,   0.5146,  ...,  48.0000,  25.1562, -27.5156],
+   |-> [rocprofiler-sdk] ...,
+   |-> [rocprofiler-sdk] [-54.4375,  -1.4375,  -0.4214,  ...,   5.4297,  17.2812, -39.0625],
+   |-> [rocprofiler-sdk] [  9.6094, -52.2500,  43.0000,  ..., -45.8438, -49.3125,  32.6875],
+   |-> [rocprofiler-sdk] [-12.8516,   9.5391,  53.3750,  ...,  -9.3438,   7.6797,  54.1250]],
+   |-> [rocprofiler-sdk] device='cuda:0', dtype=torch.float16)
+   |-> [rocprofiler-sdk] [0;33mW20260112 19:11:17.655172 140373093432896 simple_timer.cpp:55] [rocprofv3] 'python fusion_matmulbias.py' ::     2.528708 sec
+   |-> [rocprofiler-sdk] [m[0;31mE20260112 19:11:17.668124 140373093432896 output_stream.cpp:111] Opened result file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/out/pmc_1/f57b369e0635/777_kernel_trace.csv
+   |-> [rocprofiler-sdk] [m[0;31mE20260112 19:11:17.681977 140373093432896 output_stream.cpp:111] Opened result file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/out/pmc_1/f57b369e0635/777_counter_collection.csv
+   |-> [rocprofiler-sdk] [m[0;31mE20260112 19:11:17.701729 140373093432896 output_stream.cpp:111] Opened result file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/out/pmc_1/f57b369e0635/777_agent_info.csv
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:11:17.704630 140373093432896 simple_timer.cpp:55] [rocprofv3] output generation ::     0.044223 sec
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:11:17.705608 140373093432896 simple_timer.cpp:55] [rocprofv3] tool finalization ::     0.045271 sec
+   |-> [rocprofiler-sdk] [m
+[Run 9/12][Approximate profiling time left: 13 seconds]...
+[profiling] Current input file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/perfmon/pmc_perf_3.txt
+   |-> [rocprofiler-sdk] [0;33mW20260112 19:11:19.024762 140183227452992 simple_timer.cpp:55] [rocprofv3] tool initialization ::     0.128157 sec
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:11:19.024866 140183227452992 simple_timer.cpp:55] [rocprofv3] 'python fusion_matmulbias.py' ::     0.000000 sec
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:11:20.290368 140183227452992 tool.cpp:2203] HSA version 8.18.3 initialized (instance=0)
+   |-> [rocprofiler-sdk] [mRunning the fusion matmulbias kernel ...
+   |-> [rocprofiler-sdk] fusion_triton_output: tensor([[  2.7480,  43.6250,  30.9531,  ...,  26.2500,   8.8203,   6.4609],
+   |-> [rocprofiler-sdk] [  7.1562, -21.3906,  17.7969,  ..., -16.8125,  29.6562, -48.3125],
+   |-> [rocprofiler-sdk] [ 13.8125,  -6.4609,   0.5146,  ...,  48.0000,  25.1562, -27.5156],
+   |-> [rocprofiler-sdk] ...,
+   |-> [rocprofiler-sdk] [-54.4375,  -1.4375,  -0.4214,  ...,   5.4297,  17.2812, -39.0625],
+   |-> [rocprofiler-sdk] [  9.6094, -52.2500,  43.0000,  ..., -45.8438, -49.3125,  32.6875],
+   |-> [rocprofiler-sdk] [-12.8516,   9.5391,  53.3750,  ...,  -9.3438,   7.6797,  54.1250]],
+   |-> [rocprofiler-sdk] device='cuda:0', dtype=torch.float16)
+   |-> [rocprofiler-sdk] [0;33mW20260112 19:11:21.539067 140183227452992 simple_timer.cpp:55] [rocprofv3] 'python fusion_matmulbias.py' ::     2.514201 sec
+   |-> [rocprofiler-sdk] [m[0;31mE20260112 19:11:21.552083 140183227452992 output_stream.cpp:111] Opened result file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/out/pmc_1/f57b369e0635/797_kernel_trace.csv
+   |-> [rocprofiler-sdk] [m[0;31mE20260112 19:11:21.566380 140183227452992 output_stream.cpp:111] Opened result file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/out/pmc_1/f57b369e0635/797_counter_collection.csv
+   |-> [rocprofiler-sdk] [m[0;31mE20260112 19:11:21.587073 140183227452992 output_stream.cpp:111] Opened result file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/out/pmc_1/f57b369e0635/797_agent_info.csv
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:11:21.589964 140183227452992 simple_timer.cpp:55] [rocprofv3] output generation ::     0.045631 sec
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:11:21.590883 140183227452992 simple_timer.cpp:55] [rocprofv3] tool finalization ::     0.046613 sec
+   |-> [rocprofiler-sdk] [m
+[Run 10/12][Approximate profiling time left: 8 seconds]...
+[profiling] Current input file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/perfmon/pmc_perf_4.txt
+   |-> [rocprofiler-sdk] [0;33mW20260112 19:11:22.916446 140124666273344 simple_timer.cpp:55] [rocprofv3] tool initialization ::     0.127991 sec
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:11:22.916547 140124666273344 simple_timer.cpp:55] [rocprofv3] 'python fusion_matmulbias.py' ::     0.000000 sec
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:11:24.181625 140124666273344 tool.cpp:2203] HSA version 8.18.3 initialized (instance=0)
+   |-> [rocprofiler-sdk] [mRunning the fusion matmulbias kernel ...
+   |-> [rocprofiler-sdk] fusion_triton_output: tensor([[  2.7480,  43.6250,  30.9531,  ...,  26.2500,   8.8203,   6.4609],
+   |-> [rocprofiler-sdk] [  7.1562, -21.3906,  17.7969,  ..., -16.8125,  29.6562, -48.3125],
+   |-> [rocprofiler-sdk] [ 13.8125,  -6.4609,   0.5146,  ...,  48.0000,  25.1562, -27.5156],
+   |-> [rocprofiler-sdk] ...,
+   |-> [rocprofiler-sdk] [-54.4375,  -1.4375,  -0.4214,  ...,   5.4297,  17.2812, -39.0625],
+   |-> [rocprofiler-sdk] [  9.6094, -52.2500,  43.0000,  ..., -45.8438, -49.3125,  32.6875],
+   |-> [rocprofiler-sdk] [-12.8516,   9.5391,  53.3750,  ...,  -9.3438,   7.6797,  54.1250]],
+   |-> [rocprofiler-sdk] device='cuda:0', dtype=torch.float16)
+   |-> [rocprofiler-sdk] [0;33mW20260112 19:11:25.414653 140124666273344 simple_timer.cpp:55] [rocprofv3] 'python fusion_matmulbias.py' ::     2.498106 sec
+   |-> [rocprofiler-sdk] [m[0;31mE20260112 19:11:25.427668 140124666273344 output_stream.cpp:111] Opened result file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/out/pmc_1/f57b369e0635/818_kernel_trace.csv
+   |-> [rocprofiler-sdk] [m[0;31mE20260112 19:11:25.442572 140124666273344 output_stream.cpp:111] Opened result file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/out/pmc_1/f57b369e0635/818_counter_collection.csv
+   |-> [rocprofiler-sdk] [m[0;31mE20260112 19:11:25.466927 140124666273344 output_stream.cpp:111] Opened result file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/out/pmc_1/f57b369e0635/818_agent_info.csv
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:11:25.469834 140124666273344 simple_timer.cpp:55] [rocprofv3] output generation ::     0.049927 sec
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:11:25.470802 140124666273344 simple_timer.cpp:55] [rocprofv3] tool finalization ::     0.050962 sec
+   |-> [rocprofiler-sdk] [m
+[Run 11/12][Approximate profiling time left: 4 seconds]...
+[profiling] Current input file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/perfmon/pmc_perf_5.txt
+   |-> [rocprofiler-sdk] [0;33mW20260112 19:11:26.803597 140008333934144 simple_timer.cpp:55] [rocprofv3] tool initialization ::     0.129104 sec
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:11:26.803705 140008333934144 simple_timer.cpp:55] [rocprofv3] 'python fusion_matmulbias.py' ::     0.000000 sec
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:11:28.071142 140008333934144 tool.cpp:2203] HSA version 8.18.3 initialized (instance=0)
+   |-> [rocprofiler-sdk] [mRunning the fusion matmulbias kernel ...
+   |-> [rocprofiler-sdk] fusion_triton_output: tensor([[  2.7480,  43.6250,  30.9531,  ...,  26.2500,   8.8203,   6.4609],
+   |-> [rocprofiler-sdk] [  7.1562, -21.3906,  17.7969,  ..., -16.8125,  29.6562, -48.3125],
+   |-> [rocprofiler-sdk] [ 13.8125,  -6.4609,   0.5146,  ...,  48.0000,  25.1562, -27.5156],
+   |-> [rocprofiler-sdk] ...,
+   |-> [rocprofiler-sdk] [-54.4375,  -1.4375,  -0.4214,  ...,   5.4297,  17.2812, -39.0625],
+   |-> [rocprofiler-sdk] [  9.6094, -52.2500,  43.0000,  ..., -45.8438, -49.3125,  32.6875],
+   |-> [rocprofiler-sdk] [-12.8516,   9.5391,  53.3750,  ...,  -9.3438,   7.6797,  54.1250]],
+   |-> [rocprofiler-sdk] device='cuda:0', dtype=torch.float16)
+   |-> [rocprofiler-sdk] [0;33mW20260112 19:11:29.300006 140008333934144 simple_timer.cpp:55] [rocprofv3] 'python fusion_matmulbias.py' ::     2.496301 sec
+   |-> [rocprofiler-sdk] [m[0;31mE20260112 19:11:29.313001 140008333934144 output_stream.cpp:111] Opened result file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/out/pmc_1/f57b369e0635/838_kernel_trace.csv
+   |-> [rocprofiler-sdk] [m[0;31mE20260112 19:11:29.327910 140008333934144 output_stream.cpp:111] Opened result file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/out/pmc_1/f57b369e0635/838_counter_collection.csv
+   |-> [rocprofiler-sdk] [m[0;31mE20260112 19:11:29.352454 140008333934144 output_stream.cpp:111] Opened result file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/out/pmc_1/f57b369e0635/838_agent_info.csv
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:11:29.355376 140008333934144 simple_timer.cpp:55] [rocprofv3] output generation ::     0.050099 sec
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:11:29.356289 140008333934144 simple_timer.cpp:55] [rocprofv3] tool finalization ::     0.051080 sec
+   |-> [rocprofiler-sdk] [m
+[Run 12/12][Approximate profiling time left: 0 seconds]...
+[profiling] Current input file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/perfmon/pmc_perf_6.txt
+   |-> [rocprofiler-sdk] [0;33mW20260112 19:11:30.690381 140216934547008 simple_timer.cpp:55] [rocprofv3] tool initialization ::     0.128003 sec
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:11:30.690486 140216934547008 simple_timer.cpp:55] [rocprofv3] 'python fusion_matmulbias.py' ::     0.000000 sec
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:11:31.957871 140216934547008 tool.cpp:2203] HSA version 8.18.3 initialized (instance=0)
+   |-> [rocprofiler-sdk] [mRunning the fusion matmulbias kernel ...
+   |-> [rocprofiler-sdk] fusion_triton_output: tensor([[  2.7480,  43.6250,  30.9531,  ...,  26.2500,   8.8203,   6.4609],
+   |-> [rocprofiler-sdk] [  7.1562, -21.3906,  17.7969,  ..., -16.8125,  29.6562, -48.3125],
+   |-> [rocprofiler-sdk] [ 13.8125,  -6.4609,   0.5146,  ...,  48.0000,  25.1562, -27.5156],
+   |-> [rocprofiler-sdk] ...,
+   |-> [rocprofiler-sdk] [-54.4375,  -1.4375,  -0.4214,  ...,   5.4297,  17.2812, -39.0625],
+   |-> [rocprofiler-sdk] [  9.6094, -52.2500,  43.0000,  ..., -45.8438, -49.3125,  32.6875],
+   |-> [rocprofiler-sdk] [-12.8516,   9.5391,  53.3750,  ...,  -9.3438,   7.6797,  54.1250]],
+   |-> [rocprofiler-sdk] device='cuda:0', dtype=torch.float16)
+   |-> [rocprofiler-sdk] [0;33mW20260112 19:11:33.170761 140216934547008 simple_timer.cpp:55] [rocprofv3] 'python fusion_matmulbias.py' ::     2.480276 sec
+   |-> [rocprofiler-sdk] [m[0;31mE20260112 19:11:33.183702 140216934547008 output_stream.cpp:111] Opened result file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/out/pmc_1/f57b369e0635/858_kernel_trace.csv
+   |-> [rocprofiler-sdk] [m[0;31mE20260112 19:11:33.199164 140216934547008 output_stream.cpp:111] Opened result file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/out/pmc_1/f57b369e0635/858_counter_collection.csv
+   |-> [rocprofiler-sdk] [m[0;31mE20260112 19:11:33.216601 140216934547008 output_stream.cpp:111] Opened result file: /workspace/user/workloads/fusion_matmulbias/MI300X_A1/out/pmc_1/f57b369e0635/858_agent_info.csv
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:11:33.219509 140216934547008 simple_timer.cpp:55] [rocprofv3] output generation ::     0.043568 sec
+   |-> [rocprofiler-sdk] [m[0;33mW20260112 19:11:33.220458 140216934547008 simple_timer.cpp:55] [rocprofv3] tool finalization ::     0.044581 sec
+   |-> [rocprofiler-sdk] [m
+[roofline] Checking for roofline.csv in /workspace/user/workloads/fusion_matmulbias/MI300X_A1
+[roofline] No roofline data found. Generating...
+[roofline] Empirical Roofline PDFs saved!
