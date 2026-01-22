@@ -1,0 +1,4 @@
+# BUG: pandas 3.0 introduced a change that breaks rocprof-compute profile
+#      The requirements file does not specify a maximum version of pandas, so it installs the latest.
+#      Added pip install to ensure the pandas installed version is < 3.0
+pandas>=1.4.3,<3.0

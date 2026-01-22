@@ -2,10 +2,12 @@ IMAGE_REPO ?= triton-profiling
 CUDA_EPEL_VERSION ?= 9
 CUDA_IMAGE_NAME ?= cuda-profiling
 CUDA_VERSION ?= 12-8
+CUDA_PYTHON_VERSION ?= 3.12
 CUDA_VISIBLE_DEVICES ?= 0
 ROCM_EPEL_VERSION ?= 10
 ROCM_IMAGE_NAME ?= rocm-profiling
 ROCM_VERSION ?= 7.0.3
+ROCM_PYTHON_VERSION ?= 3.12
 ROCR_VISIBLE_DEVICES ?= 0
 WORKSPACE ?= $(PWD)/workspace
 CTR_CMD := $(or $(shell command -v podman), $(shell command -v docker))
@@ -81,6 +83,7 @@ cuda-image: containerfiles/Dockerfile.cuda
 	--build-arg "CUDA_VERSION=$(CUDA_VERSION)" \
 	--build-arg "EPEL_VERSION=$(CUDA_EPEL_VERSION)" \
 	--build-arg "NOTEBOOK_PORT=$(NOTEBOOK_PORT)" \
+	--build-arg "PYTHON_VERSION=$(CUDA_PYTHON_VERSION)" \
 	-t $(IMAGE_REPO)/$(CUDA_IMAGE_NAME):$(CUDA_VERSION) \
 	-f $< .
 
@@ -138,6 +141,7 @@ rocm-image: containerfiles/Dockerfile.rocm
 	--build-arg "EPEL_VERSION=$(ROCM_EPEL_VERSION)" \
 	--build-arg "ROCM_VERSION=$(ROCM_VERSION)" \
 	--build-arg "NOTEBOOK_PORT=$(NOTEBOOK_PORT)" \
+	--build-arg "PYTHON_VERSION=$(ROCM_PYTHON_VERSION)" \
 	-t $(IMAGE_REPO)/$(ROCM_IMAGE_NAME):$(ROCM_VERSION) \
 	-f $< .
 

@@ -21,7 +21,8 @@ quiet: false
 remaining:
 - --
 - python
-- nonfusion_matmulbias.py
+- triton/matmulbias.py
+- nonfusion
 rocprofiler_sdk_library_path: /opt/rocm/lib/librocprofiler-sdk.so
 roof_only: false
 roofline_data_type:
