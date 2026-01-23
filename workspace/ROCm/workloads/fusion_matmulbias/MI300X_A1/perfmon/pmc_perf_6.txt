@@ -1,5 +1,0 @@
-pmc: SQ_BUSY_CU_CYCLES SQC_TC_DATA_READ_REQ SQC_DCACHE_REQ_READ_16 TCC_ATOMIC_sum TCC_HIT_sum
-
-gpu:
-range:
-kernel:

@@ -1,0 +1,86 @@
+
+[
+    {
+        "children": [
+            {
+                "children": [],
+                "frame": {
+                    "name": "_ZN2at6native29vectorized_elementwise_kernelILi4ENS0_11FillFunctorIiEESt5arrayIPcLm1EEEEviT0_T1_",
+                    "type": "function"
+                },
+                "metrics": {
+                    "count": 21264,
+                    "device_id": "0",
+                    "device_type": "HIP",
+                    "time (ns)": 889389031
+                }
+            },
+            {
+                "children": [],
+                "frame": {
+                    "name": "bias_kernel [M=1024, N=1024] [BM=128, BN=128]",
+                    "type": "function"
+                },
+                "metrics": {
+                    "bytes": 26124816384,
+                    "count": 12433,
+                    "device_id": "0",
+                    "device_type": "HIP",
+                    "flops16": 26073890816.0,
+                    "time (ns)": 44651775
+                }
+            },
+            {
+                "children": [],
+                "frame": {
+                    "name": "bias_kernel [M=1024, N=1024] [BM=128, BN=256]",
+                    "type": "function"
+                },
+                "metrics": {
+                    "bytes": 26124816384,
+                    "count": 12433,
+                    "device_id": "0",
+                    "device_type": "HIP",
+                    "flops16": 26073890816.0,
+                    "time (ns)": 47389090
+                }
+            },
+            {
+                "children": [],
+                "frame": {
+                    "name": "matmul_kernel [M=1024, N=1024, K=1024] [BM=128, BN=128 BK=64]",
+                    "type": "function"
+                },
+                "metrics": {
+                    "bytes": 10745806848,
+                    "count": 1708,
+                    "device_id": "0",
+                    "device_type": "HIP",
+                    "flops16": 3667902070784.0,
+                    "time (ns)": 38672021
+                }
+            }
+        ],
+        "frame": {
+            "name": "ROOT",
+            "type": "function"
+        },
+        "metrics": {
+            "bytes": 0,
+            "count": 0,
+            "flops16": 0,
+            "time (ns)": 0
+        }
+    },
+    {
+        "HIP": {
+            "0": {
+                "arch": "gfx942",
+                "bus_width": 8192,
+                "clock_rate": 2100000,
+                "memory_clock_rate": 1300000,
+                "num_sms": 304
+            }
+        }
+    }
+]

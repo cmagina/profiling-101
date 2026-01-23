@@ -282,22 +282,24 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--profile", action="store_true")
     parser.add_argument("--verify", action="store_true")
+    parser.add_argument("--M", default=1024, type=int, help="M size of the input matrices. Default: %(default)d")
+    parser.add_argument("--N", default=1024, type=int, help="N size of the input matrices. Default: %(default)d")
     parser.add_argument("kernel", choices=["fusion", "nonfusion"])
     args = parser.parse_args()
 
     # Test matrices
     torch.manual_seed(0)
-    M = 1024
-    N = 1024
+    M = args.M
+    N = args.N
     a = torch.randn((M, N), device='cuda', dtype=torch.float16)
     b = torch.randn((N, M), device='cuda', dtype=torch.float16)
     bias = torch.randn(N, device='cuda', dtype=torch.float16)
 
     if args.profile:
-        print(f"Profiling the {args.kernel} matmulbias kernel ...")
-        proton.start(f"profiles/{args.kernel}_matmulbias", hook="triton")
+        print(f"Profiling the {args.kernel} matmulbias kernel (input size M:{args.M} N:{args.N}) ...")
+        proton.start(f"profiles/{args.kernel}_matmulbias_{args.M}x{args.N}", hook="triton")
     else:
-        print(f"Running the {args.kernel} matmulbias kernel ...")
+        print(f"Running the {args.kernel} matmulbias kernel (input size M:{args.M} N:{args.N}) ...")
 
     if args.kernel == "fusion":
         triton_output = fusion_matmulbias(a, b, bias)
@@ -309,7 +311,7 @@ if __name__ == "__main__":
     print(f"triton_output: {triton_output}")
 
     if args.profile:
-        show_profile(f"{args.kernel}_matmulbias")
+        show_profile(f"{args.kernel}_matmulbias_{args.M}x{args.N}")
 
     if args.verify:
         print(f"Running the torch matmulbias kernel ...")

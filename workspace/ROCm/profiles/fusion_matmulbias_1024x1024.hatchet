@@ -1,0 +1,56 @@
+
+[
+    {
+        "children": [
+            {
+                "children": [],
+                "frame": {
+                    "name": "_ZN2at6native29vectorized_elementwise_kernelILi4ENS0_11FillFunctorIiEESt5arrayIPcLm1EEEEviT0_T1_",
+                    "type": "function"
+                },
+                "metrics": {
+                    "count": 1347,
+                    "device_id": "0",
+                    "device_type": "HIP",
+                    "time (ns)": 56559274
+                }
+            },
+            {
+                "children": [],
+                "frame": {
+                    "name": "matmulbias_kernel [M=1024, N=1024, K=1024] [BM=128, BN=128 BK=64]",
+                    "type": "function"
+                },
+                "metrics": {
+                    "bytes": 10594811904,
+                    "count": 1684,
+                    "device_id": "0",
+                    "device_type": "HIP",
+                    "flops16": 3616362463232.0,
+                    "time (ns)": 39399390
+                }
+            }
+        ],
+        "frame": {
+            "name": "ROOT",
+            "type": "function"
+        },
+        "metrics": {
+            "bytes": 0,
+            "count": 0,
+            "flops16": 0,
+            "time (ns)": 0
+        }
+    },
+    {
+        "HIP": {
+            "0": {
+                "arch": "gfx942",
+                "bus_width": 8192,
+                "clock_rate": 2100000,
+                "memory_clock_rate": 1300000,
+                "num_sms": 304
+            }
+        }
+    }
+]

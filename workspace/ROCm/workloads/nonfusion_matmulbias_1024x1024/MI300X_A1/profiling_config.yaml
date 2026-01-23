@@ -1,0 +1,35 @@
+config_dir: /opt/rocm-7.0.3/libexec/rocprofiler-compute/rocprof_compute_soc/analysis_configs
+device: -1
+dispatch: null
+filter_blocks: {}
+format_rocprof_output: csv
+hip_trace: false
+join_type: grid
+kernel: null
+kernel_names: false
+kokkos_trace: false
+list_metrics: null
+loglevel: 20
+mem_level: ALL
+mode: profile
+name: nonfusion_matmulbias_1024x1024
+no_roof: false
+path: /workspace/user/workloads/nonfusion_matmulbias_1024x1024/MI300X_A1
+pc_sampling_interval: 1048576
+pc_sampling_method: stochastic
+quiet: false
+remaining:
+- --
+- python
+- triton/matmulbias.py
+- nonfusion
+rocprofiler_sdk_library_path: /opt/rocm/lib/librocprofiler-sdk.so
+roof_only: false
+roofline_data_type:
+- FP32
+sort: kernels
+spatial_multiplexing: null
+specs: false
+subpath: gpu
+target: null
+verbose: 0

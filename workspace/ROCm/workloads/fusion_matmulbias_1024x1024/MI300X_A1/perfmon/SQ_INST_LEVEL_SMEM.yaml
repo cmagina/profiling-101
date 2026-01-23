@@ -1,0 +1,10 @@
+rocprofiler-sdk:
+  counters-schema-version: 1
+  counters:
+  - name: SQ_INST_LEVEL_SMEM_ACCUM
+    description: SQ_INST_LEVEL_SMEM accumulation
+    properties: []
+    definitions:
+    - architectures:
+      - gfx942
+      expression: accumulate(SQ_INST_LEVEL_SMEM, HIGH_RES)
