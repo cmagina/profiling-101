@@ -1,15 +1,17 @@
 IMAGE_REPO ?= triton-profiling
+WORKSPACE ?= $(PWD)/workspace
 CUDA_EPEL_VERSION ?= 9
 CUDA_IMAGE_NAME ?= cuda-profiling
 CUDA_VERSION ?= 12-8
 CUDA_PYTHON_VERSION ?= 3.12
 CUDA_VISIBLE_DEVICES ?= 0
+CUDA_WORKSPACE ?= ${WORKSPACE}/CUDA
 ROCM_EPEL_VERSION ?= 10
 ROCM_IMAGE_NAME ?= rocm-profiling
 ROCM_VERSION ?= 7.0.3
 ROCM_PYTHON_VERSION ?= 3.12
+ROCM_WORKSPACE ?= ${WORKSPACE}/ROCm
 ROCR_VISIBLE_DEVICES ?= 0
-WORKSPACE ?= $(PWD)/workspace
 CTR_CMD := $(or $(shell command -v podman), $(shell command -v docker))
 
 # Container Run
@@ -36,7 +38,7 @@ define cuda_args
 endef
 
 define cuda_vol
-	-v "${WORKSPACE}/CUDA:/workspace/user:Z"
+	-v "${CUDA_WORKSPACE}:/workspace/user:Z"
 endef
 
 # Runtime Nsight arguments
@@ -64,7 +66,7 @@ define rocm_args
 endef
 
 define rocm_vol
-	-v "${WORKSPACE}/ROCm:/workspace/user:Z"
+	-v "${ROCM_WORKSPACE}:/workspace/user:Z"
 endef
 
 # Runtime Jupyter notebook arguments
